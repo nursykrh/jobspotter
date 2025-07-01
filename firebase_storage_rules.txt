@@ -1,0 +1,48 @@
+// Firebase Storage Security Rules
+// Copy and paste this into Firebase Console -> Storage -> Rules
+
+rules_version = '2';
+
+// Craft rules based on data in your Firestore database
+// allow write: if firestore.get(
+//    /databases/(default)/documents/users/$(request.auth.uid)).data.isAdmin;
+service firebase.storage {
+  match /b/{bucket}/o {
+    // 1. Profile pictures - allow any filename in profile_pictures folder
+    match /profile_pictures/{fileName} {
+      allow read: if true; // Anyone can read profile pictures
+      allow write: if request.auth != null; // Any authenticated user can upload
+    }
+    
+    // 2. Employer verification documents
+    match /employer_documents/{userId}/{documentId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // 3. Resumes - user-specific folders
+    match /resumes/{userId}/{fileName} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // 4. Cover letters - user-specific folders
+    match /cover_letters/{userId}/{fileName} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // 5. Company logos - public read, authenticated write
+    match /company_logos/{fileName} {
+      allow read: if true; // Anyone can read company logos
+      allow write: if request.auth != null;
+    }
+    
+    // 6. Company documents - user-specific folders
+    match /company_documents/{userId}/{fileName} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // 7. Fallback rule - deny everything else
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+} 

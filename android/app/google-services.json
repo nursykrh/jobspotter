@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68155404067",
+    "project_id": "jobspotter-1cfdb",
+    "storage_bucket": "jobspotter-1cfdb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68155404067:android:ee87ce582a36950d706696",
+        "android_client_info": {
+          "package_name": "com.example.job4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwJSM_k5kfPOWf3Daax_xWvDr38L70g3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
