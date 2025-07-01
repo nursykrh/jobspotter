@@ -725,6 +725,17 @@ class _HomeTabState extends State<HomeTab> {
                       target: _searchedLatLng ?? _defaultLocation,
                       zoom: _defaultZoom,
                     ),
+                    // Enable all gestures for user-friendly interaction
+                    zoomGesturesEnabled: true,
+                    scrollGesturesEnabled: true,
+                    tiltGesturesEnabled: true,
+                    rotateGesturesEnabled: true,
+                    // Enable zoom controls and compass
+                    zoomControlsEnabled: true,
+                    compassEnabled: true,
+                    // Enable location features
+                    myLocationEnabled: true,
+                    myLocationButtonEnabled: true,
                     markers: _allJobs.where((job) {
                       final matchCategory = _selectedCategory == 'All' ||
                         (job['category'] ?? '').toString().toLowerCase() == _selectedCategory.toLowerCase();

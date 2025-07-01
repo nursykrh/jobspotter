@@ -42,6 +42,15 @@ class _MapScreenState extends State<MapScreen> {
             myLocationEnabled: true,
             myLocationButtonEnabled: true,
             zoomControlsEnabled: true,
+            // Enable all gestures for user-friendly interaction
+            zoomGesturesEnabled: true,
+            scrollGesturesEnabled: true,
+            tiltGesturesEnabled: true,
+            rotateGesturesEnabled: true,
+            // Enable compass for better navigation
+            compassEnabled: true,
+            // Enable map toolbar for additional options
+            mapToolbarEnabled: true,
             onCameraMove: (position) {
               // Camera position tracking
             },
