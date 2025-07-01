@@ -441,9 +441,11 @@ class _HomeTabState extends State<HomeTab> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-        child: Column(
+          // Disable scrolling when map is shown to allow map gestures
+          physics: _showMap ? const NeverScrollableScrollPhysics() : null,
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+            children: [
             // Custom App Bar
             Container(
               padding: const EdgeInsets.all(16),
@@ -718,8 +720,10 @@ class _HomeTabState extends State<HomeTab> {
 
               // Main Content
               if (_showMap)
-                SizedBox(
+                Container(
                   height: 400,
+                  // Allow gestures to pass through to the map
+                  decoration: const BoxDecoration(),
                   child: GoogleMap(
                     initialCameraPosition: CameraPosition(
                       target: _searchedLatLng ?? _defaultLocation,
