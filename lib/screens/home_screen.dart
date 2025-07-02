@@ -77,9 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Recommend',
             ),
                 const BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_outlined),
-              activeIcon: Icon(Icons.notifications),
-              label: 'Activity',
+              icon: Icon(Icons.bookmark_border),
+              activeIcon: Icon(Icons.bookmark),
+              label: 'Saved',
             ),
             BottomNavigationBarItem(
                   icon: badges.Badge(
@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: const Icon(Icons.message),
                   ),
-              label: 'Message',
+              label: 'Notification',
             ),
                 const BottomNavigationBarItem(
               icon: Icon(Icons.person_outline),
